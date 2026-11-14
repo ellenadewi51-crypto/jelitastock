@@ -155,7 +155,12 @@ td .sub{display:block;color:var(--muted);font-size:12px}
 .tile:hover{border-color:var(--accent);box-shadow:var(--shadow)}
 .tile:active{transform:scale(.98)}
 .tile[disabled]{opacity:.45;cursor:not-allowed}
-.art{height:70px;border-radius:8px;display:grid;place-items:center;font:800 24px var(--fd);background:hsl(var(--h) 45% 50%/.16);color:hsl(var(--h) 55% var(--tl))}
+.art{height:104px;border-radius:8px;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 35%,hsl(var(--h) 40% 98%/.95),hsl(var(--h) 45% 60%/.2));overflow:hidden}
+.art img{height:100%;width:100%;object-fit:contain;display:block;padding:2px}
+.th{width:46px;height:46px;border-radius:10px;object-fit:contain;background:linear-gradient(160deg,var(--surface2),var(--accent-soft));padding:2px;flex:none;border:1px solid var(--line)}
+.th.lg{width:112px;height:112px;border-radius:14px}
+.pn,.cn{display:flex;gap:10px;align-items:center;min-width:0;text-align:left}.pn>div,.cn>div{min-width:0}
+.pf{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
 .tile b{font-size:13px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;min-height:34px}
 .tile .pr{font-weight:700;color:var(--accent)}
 .tile .st{position:absolute;top:14px;right:14px;font-size:11px;font-weight:700;background:var(--surface);border-radius:99px;padding:1px 7px;border:1px solid var(--line)}
@@ -364,12 +369,12 @@ const defSettings=()=>({toko:'Jelita Cosmetics Blora',alamat:'Jl. Mr. Iskandar, 
 async function seed(){
   const R=rng(20261113),now=new Date();
   const users=[await mkUser('u1','Jelita Anggraini','pemilik','pemilik','jelita123'),await mkUser('u2','Rina Kusuma','kepala','kepala','jelita123'),await mkUser('u3','Dewi Lestari','kasir','kasir','kasir123'),await mkUser('u4','Bagas Pratama','gudang','gudang','gudang123'),await mkUser('u5','Sinta Maharani','purchasing','purchasing','beli123'),await mkUser('u6','Nanda Putri','sales','sales','sales123')];
-  const P=[['KS-001','Sabun cair 250 ml','Merek A',2,19000,28000,12],['KS-007','Sabun muka 100 ml','Merek C',0,16000,25000,10],['KS-009','Toner mawar 150 ml','Merek B',0,32000,48000,8],['KS-014','Serum vitamin C 20 ml','Merek B',0,58000,85000,8],['KS-018','Serum niasinamida 20 ml','Merek E',0,52000,79000,8],['KS-022','Masker lumpur 100 g','Merek C',0,25000,39000,10],['KS-026','Micellar water 200 ml','Merek D',0,30000,46000,8],['KS-031','Lip tint seri A','Merek D',1,28000,45000,15],['KS-033','Lip cream matte','Merek F',1,33000,52000,12],['KS-036','Maskara waterproof','Merek F',1,30000,48000,10],['KS-038','Eyeliner cair hitam','Merek D',1,22000,35000,10],['KS-040','Sunscreen SPF 30','Merek E',0,41000,62000,10],['KS-043','Sunscreen SPF 50 gel','Merek E',0,47000,69000,10],['KS-046','Bedak tabur 40 g','Merek A',1,17000,27000,12],['KS-048','Bedak padat 12 g','Merek F',1,34000,54000,10],['KS-049','Cushion SPF 35','Merek D',1,62000,95000,6],['KS-052','Pelembap wajah 50 g','Merek B',0,36000,54000,10],['KS-055','Pelembap bibir','Merek A',2,9000,15000,15],['KS-058','Losion tubuh 200 ml','Merek A',2,24000,38000,10],['KS-060','Scrub kopi 150 g','Merek C',2,21000,33000,8],['KS-063','Sampo anti ketombe 170 ml','Merek B',3,22000,34000,10],['KS-065','Kondisioner 170 ml','Merek B',3,22000,34000,10],['KS-068','Serum rambut 50 ml','Merek C',3,27000,42000,8],['KS-071','Parfum bunga 30 ml','Merek F',4,45000,72000,6],['KS-073','Body mist vanila 100 ml','Merek A',4,26000,42000,8],['KS-075','Deodoran roll-on 50 ml','Merek C',2,14000,22000,12]];
+  const P=[['KS-001','Sabun cair 250 ml','Viva',2,19000,28000,12],['KS-007','Sabun muka 100 ml','Emina',0,16000,25000,10],['KS-009','Toner mawar 150 ml','Wardah',0,32000,48000,8],['KS-014','Serum vitamin C 20 ml','Wardah',0,58000,85000,8],['KS-018','Serum niasinamida 20 ml','Skintific',0,52000,79000,8],['KS-022','Masker lumpur 100 g','Emina',0,25000,39000,10],['KS-026','Micellar water 200 ml','Luxcrime',0,30000,46000,8],['KS-031','Lip tint seri A','Luxcrime',1,28000,45000,15],['KS-033','Lip cream matte','OMG',1,33000,52000,12],['KS-036','Maskara waterproof','OMG',1,30000,48000,10],['KS-038','Eyeliner cair hitam','Luxcrime',1,22000,35000,10],['KS-040','Sunscreen SPF 30','Skintific',0,41000,62000,10],['KS-043','Sunscreen SPF 50 gel','Skintific',0,47000,69000,10],['KS-046','Bedak tabur 40 g','Viva',1,17000,27000,12],['KS-048','Bedak padat 12 g','OMG',1,34000,54000,10],['KS-049','Cushion SPF 35','Luxcrime',1,62000,95000,6],['KS-052','Pelembap wajah 50 g','Wardah',0,36000,54000,10],['KS-055','Pelembap bibir','Viva',2,9000,15000,15],['KS-058','Losion tubuh 200 ml','Viva',2,24000,38000,10],['KS-060','Scrub kopi 150 g','Emina',2,21000,33000,8],['KS-063','Sampo anti ketombe 170 ml','Wardah',3,22000,34000,10],['KS-065','Kondisioner 170 ml','Wardah',3,22000,34000,10],['KS-068','Serum rambut 50 ml','Emina',3,27000,42000,8],['KS-071','Parfum bunga 30 ml','OMG',4,45000,72000,6],['KS-073','Body mist vanila 100 ml','Viva',4,26000,42000,8],['KS-075','Deodoran roll-on 50 ml','Emina',2,14000,22000,12]];
   const fixQty={'KS-014':3,'KS-052':9,'KS-075':0,'KS-022':21,'KS-018':7};
   const products=[],batches=[],mov=[];
   P.forEach((r,i)=>{
     const id='p'+(i+1);
-    products.push({id,kode:r[0],barcode:'899'+String(7000000000+i*137).padStart(10,'0'),nama:r[1],merek:r[2],kat:KAT[r[3]],satuan:'pcs',beli:r[4],jual:r[5],min:r[6],aktif:true});
+    products.push({id,tipe:guessTipe(r[1]),kode:r[0],barcode:'899'+String(7000000000+i*137).padStart(10,'0'),nama:r[1],merek:r[2],kat:KAT[r[3]],satuan:'pcs',beli:r[4],jual:r[5],min:r[6],aktif:true});
     const q=r[0] in fixQty?fixQty[r[0]]:8+Math.floor(R()*48);
     if(q>0){
       const off=r[0]==='KS-022'?38:150+Math.floor(R()*560);
@@ -453,6 +458,64 @@ function alerts(){
   const ord={bad:0,warn:1,info:2};return out.sort((a,b)=>ord[a.c]-ord[b.c]);
 }
 const salesOn=(from,to)=>DB.sales.filter(s=>s.status==='selesai'&&s.tanggal.slice(0,10)>=from&&s.tanggal.slice(0,10)<=to);
+</script>
+<script>
+/* ---------- gambar produk: kemasan kosmetik dirender realistis (SVG), atau foto unggahan sendiri ---------- */
+const TIPE={pump:'Botol pompa (sabun, losion)',dropper:'Botol serum (dropper)',jar:'Jar / krim',tube:'Tube (sabun muka, sunscreen, masker)',spray:'Botol semprot (toner, body mist)',perfume:'Parfum',lip:'Lip tint / lip cream',mascara:'Maskara',eyeliner:'Eyeliner',compact:'Bedak padat / cushion',powder:'Bedak tabur',roll:'Roll-on',shampoo:'Botol sampo / kondisioner',balm:'Pelembap bibir'};
+function guessTipe(n){
+  n=String(n||'').toLowerCase();
+  const m=[[/maskara/,'mascara'],[/eyeliner|alis/,'eyeliner'],[/pelembap bibir|lip balm/,'balm'],[/lip|lipstik/,'lip'],[/bedak tabur/,'powder'],[/bedak|cushion|foundation/,'compact'],[/parfum|cologne/,'perfume'],[/roll/,'roll'],[/sampo|kondisioner|shampoo/,'shampoo'],[/serum/,'dropper'],[/toner|mist|semprot|spray/,'spray'],[/sabun cair|losion|lotion|micellar|body wash/,'pump'],[/sabun muka|masker|sunscreen|tabir|tube|pembersih/,'tube'],[/pelembap|krim|cream|scrub|jar|balsem/,'jar']];
+  for(const [r,t] of m)if(r.test(n))return t;return 'jar';
+}
+function hueOf(p){let s=0;for(const c of String(p.kode||p.nama||'x'))s+=c.charCodeAt(0);return ((KHUE[p.kat]||200)+(s%64)-32+360)%360}
+function prodSvg(t,h,p){
+  const hs=(s,l)=>`hsl(${h},${s}%,${l}%)`,x=s=>String(s).replace(/[&<>"]/g,'');
+  const odd=(String(p.kode||'').replace(/\D/g,'')|0)%2===1;
+  const def=`<defs>
+<linearGradient id="b" x1="0" x2="1"><stop offset="0" stop-color="${hs(50,30)}"/><stop offset=".2" stop-color="${hs(55,50)}"/><stop offset=".38" stop-color="${hs(62,74)}"/><stop offset=".62" stop-color="${hs(52,52)}"/><stop offset="1" stop-color="${hs(48,27)}"/></linearGradient>
+<linearGradient id="k" x1="0" x2="1"><stop offset="0" stop-color="#0d0f12"/><stop offset=".25" stop-color="#2c3138"/><stop offset=".42" stop-color="#555d68"/><stop offset=".65" stop-color="#23272d"/><stop offset="1" stop-color="#08090b"/></linearGradient>
+<linearGradient id="m" x1="0" x2="1"><stop offset="0" stop-color="#7d8893"/><stop offset=".25" stop-color="#d9e0e6"/><stop offset=".42" stop-color="#ffffff"/><stop offset=".68" stop-color="#a7b1bb"/><stop offset="1" stop-color="#68737e"/></linearGradient>
+<linearGradient id="gd" x1="0" x2="1"><stop offset="0" stop-color="#7a5a14"/><stop offset=".25" stop-color="#d7b45a"/><stop offset=".42" stop-color="#fff1b8"/><stop offset=".68" stop-color="#bd9738"/><stop offset="1" stop-color="#6d500f"/></linearGradient>
+<linearGradient id="w" x1="0" x2="1"><stop offset="0" stop-color="#b9c2cb"/><stop offset=".25" stop-color="#eef2f6"/><stop offset=".42" stop-color="#ffffff"/><stop offset=".68" stop-color="#d6dde4"/><stop offset="1" stop-color="#a5afb9"/></linearGradient>
+<radialGradient id="lid" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="${hs(60,78)}"/><stop offset=".6" stop-color="${hs(55,52)}"/><stop offset="1" stop-color="${hs(50,34)}"/></radialGradient>
+<radialGradient id="sh"><stop offset="0" stop-color="#000" stop-opacity=".38"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient></defs>`;
+  const words=String(p.nama||'').split(/\s+/),size=(String(p.nama||'').match(/(\d+\s?(ml|g))$/i)||[''])[0];
+  const nm=words.filter(w=>!/^\d/.test(w)&&!/^(ml|g)$/i.test(w));
+  const lab=(lx,ly,lw,lh)=>{const cx=lx+lw/2,mx=lw>34?11:9;
+    return `<rect x="${lx}" y="${ly}" width="${lw}" height="${lh}" rx="2.5" fill="#fbf9f5"/><rect x="${lx}" y="${ly}" width="${lw}" height="4" rx="2" fill="${hs(55,45)}"/>
+
+<text x="${cx}" y="${ly+18}" font-family="Arial,Helvetica,sans-serif" font-size="5" text-anchor="middle" fill="#3d444d">${x(nm[0]||'').slice(0,mx)}</text>
+${nm[1]?`<text x="${cx}" y="${ly+24}" font-family="Arial,Helvetica,sans-serif" font-size="5" text-anchor="middle" fill="#3d444d">${x(nm.slice(1).join(' ')).slice(0,mx)}</text>`:''}
+${size&&lh>=(nm[1]?34:28)?`<text x="${cx}" y="${ly+lh-3}" font-family="Arial,Helvetica,sans-serif" font-size="3.8" text-anchor="middle" fill="#7a828c">${x(size)}</text>`:''}`};
+  const hl=(hx,hy,hh)=>`<rect x="${hx}" y="${hy}" width="4" height="${hh}" rx="2" fill="#fff" opacity=".38"/>`;
+  const brand=()=>'';
+  let g='';
+  switch(t){
+  case 'pump':g=`<rect x="36" y="42" width="48" height="62" rx="9" fill="url(#b)"/>${hl(40,46,52)}<rect x="52" y="34" width="16" height="9" rx="2" fill="url(#w)"/><rect x="56" y="24" width="8" height="12" rx="2" fill="url(#w)"/><rect x="48" y="15" width="34" height="10" rx="4.5" fill="url(#w)"/>${lab(41,60,38,34)}`;break;
+  case 'dropper':g=`<rect x="40" y="46" width="40" height="58" rx="8" fill="url(#b)"/>${hl(44,50,48)}<rect x="50" y="38" width="20" height="10" rx="2" fill="url(#gd)"/><path d="M54 38V22Q54 11 60 11Q66 11 66 22V38Z" fill="url(#k)"/>${lab(45,62,30,30)}`;break;
+  case 'jar':g=`<rect x="28" y="58" width="64" height="46" rx="9" fill="url(#b)"/>${hl(33,62,36)}<rect x="26" y="42" width="68" height="20" rx="6" fill="url(#${odd?'m':'gd'})"/><rect x="30" y="45" width="5" height="12" rx="2.5" fill="#fff" opacity=".4"/>${lab(35,70,50,28)}`;break;
+  case 'tube':g=`<path d="M42 90L37 36Q60 31 83 36L78 90Z" fill="url(#b)"/><path d="M46 40L49 88" stroke="#fff" stroke-opacity=".42" stroke-width="4" stroke-linecap="round"/><rect x="36" y="21" width="48" height="16" rx="2" fill="url(#b)"/><path d="M39 25h42M39 29h42M39 33h42" stroke="#000" stroke-opacity=".2"/><rect x="43" y="90" width="34" height="14" rx="3" fill="url(#w)"/>${lab(44,46,32,32)}`;break;
+  case 'spray':g=`<rect x="38" y="46" width="44" height="58" rx="10" fill="url(#b)"/>${hl(43,50,48)}<rect x="52" y="38" width="16" height="9" rx="2" fill="url(#m)"/><rect x="48" y="21" width="24" height="18" rx="4" fill="url(#w)"/><rect x="68" y="24" width="12" height="6" rx="2" fill="url(#w)"/>${lab(43,62,34,30)}`;break;
+  case 'perfume':g=`<rect x="34" y="46" width="52" height="58" rx="7" fill="url(#b)" opacity=".8"/><rect x="40" y="52" width="40" height="46" rx="4" fill="#fff" opacity=".1"/>${hl(38,50,48)}<rect x="50" y="38" width="20" height="9" rx="2" fill="url(#gd)"/><rect x="47" y="12" width="26" height="28" rx="3" fill="url(#k)"/>${brand(60,26)}${lab(43,62,34,24)}`;break;
+  case 'lip':g=`<rect x="48" y="60" width="24" height="44" rx="6" fill="url(#b)"/>${hl(52,64,34)}<rect x="48" y="26" width="24" height="36" rx="4" fill="url(#k)"/><rect x="48" y="58" width="24" height="5" fill="url(#gd)"/>${brand(60,46,'#e9d28a')}`;break;
+  case 'mascara':g=`<rect x="49" y="10" width="22" height="48" rx="4" fill="url(#k)"/><rect x="49" y="57" width="22" height="5" fill="url(#gd)"/><rect x="50" y="62" width="20" height="42" rx="3" fill="url(#k)"/>${brand(60,36)}${brand(60,86)}`;break;
+  case 'eyeliner':g=`<rect x="54" y="38" width="12" height="66" rx="4" fill="url(#k)"/><rect x="57" y="16" width="6" height="24" rx="3" fill="url(#k)"/><rect x="54" y="38" width="12" height="4" fill="url(#gd)"/><rect x="56" y="48" width="2.5" height="50" fill="#fff" opacity=".25"/>`;break;
+  case 'compact':g=`<ellipse cx="60" cy="88" rx="36" ry="12" fill="url(#k)"/><rect x="24" y="62" width="72" height="26" fill="url(#b)"/><rect x="24" y="80" width="72" height="3" fill="url(#gd)"/><ellipse cx="60" cy="62" rx="36" ry="13" fill="url(#lid)"/><ellipse cx="60" cy="62" rx="26" ry="8" fill="none" stroke="#fff" stroke-opacity=".4"/>${brand(60,64,'#ffffff')}`;break;
+  case 'powder':g=`<rect x="30" y="58" width="60" height="46" rx="8" fill="url(#b)"/>${hl(34,62,36)}<rect x="28" y="45" width="64" height="16" rx="4" fill="url(#w)"/><path d="M34 50h52" stroke="#000" stroke-opacity=".12"/>${lab(35,68,50,28)}`;break;
+  case 'roll':g=`<rect x="42" y="46" width="36" height="58" rx="11" fill="url(#b)"/>${hl(46,52,44)}<rect x="50" y="38" width="20" height="9" rx="2" fill="url(#m)"/><rect x="46" y="14" width="28" height="26" rx="7" fill="url(#w)"/>${lab(46,62,28,30)}`;break;
+  case 'shampoo':g=`<rect x="34" y="34" width="52" height="70" rx="11" fill="url(#b)"/>${hl(39,40,58)}<rect x="46" y="19" width="28" height="17" rx="5" fill="url(#w)"/>${lab(39,52,42,38)}`;break;
+  case 'balm':g=`<rect x="48" y="52" width="24" height="52" rx="5" fill="url(#b)"/>${hl(52,56,42)}<rect x="47" y="24" width="26" height="30" rx="5" fill="url(#w)"/><rect x="47" y="50" width="26" height="4" fill="url(#gd)"/>${brand(60,82,'#fff')}`;break;
+  default:g=`<rect x="30" y="50" width="60" height="54" rx="9" fill="url(#b)"/>`;
+  }
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">${def}<ellipse cx="60" cy="106" rx="32" ry="5.5" fill="url(#sh)"/>${g}</svg>`;
+}
+const IMGC={};
+function pimg(p){
+  if(p.foto)return p.foto;
+  const t=p.tipe||guessTipe(p.nama),k=t+'|'+p.kode+'|'+p.merek+'|'+p.nama;
+  return IMGC[k]||(IMGC[k]='data:image/svg+xml;charset=utf-8,'+encodeURIComponent(prodSvg(t,hueOf(p),p)));
+}
+function readFoto(file){return new Promise((ok,no)=>{const r=new FileReader();r.onerror=no;r.onload=()=>{const im=new Image();im.onerror=no;im.onload=()=>{const m=480,sc=Math.min(1,m/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*sc);c.height=Math.round(im.height*sc);const cx=c.getContext('2d');cx.fillStyle='#fff';cx.fillRect(0,0,c.width,c.height);cx.drawImage(im,0,0,c.width,c.height);ok(c.toDataURL('image/jpeg',.82))};im.src=r.result};r.readAsDataURL(file)})}
 </script>
 <script>
 /* ---------- modal, toast, konfirmasi ---------- */
@@ -605,11 +668,11 @@ function gridHTML(){
   const list=DB.products.filter(p=>p.aktif&&(ui.cat==='Semua'||p.kat===ui.cat)&&(!q||(p.nama+' '+p.kode+' '+p.barcode+' '+p.merek).toLowerCase().includes(q)));
   if(!list.length)return `<div class="empty" style="grid-column:1/-1">Produk tidak ditemukan.</div>`;
   return list.map(p=>{const s=st[p.id].sell,inC=(ui.cart.items.find(i=>i.pid===p.id)||{}).qty||0;
-    return `<button class="tile" data-act="add" data-id="${p.id}" ${s-inC<=0?'disabled':''} style="--h:${KHUE[p.kat]||200}"><span class="st ${s<=0?'zero':s<=p.min?'low':''}">${s<=0?'Habis':s}</span><div class="art">${esc(initials(p.nama))}</div><b>${esc(p.nama)}</b><span class="muted" style="font-size:12px">${esc(p.merek)} · ${esc(p.kode)}</span><span class="pr num">${rp(p.jual)}</span></button>`}).join('');
+    return `<button class="tile" data-act="add" data-id="${p.id}" ${s-inC<=0?'disabled':''} style="--h:${KHUE[p.kat]||200}"><span class="st ${s<=0?'zero':s<=p.min?'low':''}">${s<=0?'Habis':s}</span><div class="art"><img src="${pimg(p)}" alt="${esc(p.nama)}"></div><b>${esc(p.nama)}</b><span class="muted" style="font-size:12px">${esc(p.merek)} · ${esc(p.kode)}</span><span class="pr num">${rp(p.jual)}</span></button>`}).join('');
 }
 function cartHTML(){
   const c=ui.cart,t=cartCalc(),st=stats();
-  const items=c.items.map(i=>{const p=prod(i.pid);if(!p)return '';return `<div class="ci"><div><b>${esc(p.nama)}</b><div class="sub num">${rp(p.jual)} × ${i.qty}</div></div><b class="num right">${rp(p.jual*i.qty)}</b>
+  const items=c.items.map(i=>{const p=prod(i.pid);if(!p)return '';return `<div class="ci"><div class="cn"><img class="th" src="${pimg(p)}" alt=""><div><b>${esc(p.nama)}</b><div class="sub num">${rp(p.jual)} × ${i.qty}</div></div></div><b class="num right">${rp(p.jual*i.qty)}</b>
     <div class="qty"><button data-act="qty" data-id="${i.pid}" data-d="-1" aria-label="Kurangi">${icon('minus')}</button><input data-in="qtyset" data-id="${i.pid}" value="${i.qty}" inputmode="numeric" aria-label="Jumlah"><button data-act="qty" data-id="${i.pid}" data-d="1" aria-label="Tambah">${icon('plus')}</button></div>
     <button class="btn sm bad" data-act="rm" data-id="${i.pid}" style="justify-self:end">${icon('trash')}</button></div>`}).join('');
   return `<header><h3>Pesanan</h3>${DB.held.length?`<button class="btn sm" data-act="heldList">Tertahan (${DB.held.length})</button>`:''}<button class="btn sm ghost mx" data-act="cartClose">${icon('x')}</button></header>
@@ -740,7 +803,7 @@ function prodRows(){
 function prodTable(){
   const rows=prodRows(),PS=12,pages=Math.max(1,Math.ceil(rows.length/PS));if(ui.pp>pages)ui.pp=pages;
   const sl=rows.slice((ui.pp-1)*PS,ui.pp*PS);
-  return `<div class="tw"><table class="rt"><thead><tr><th>Kode</th><th>Nama produk</th><th>Merek</th><th class="right">Harga jual</th><th class="right">Stok</th><th>Kedaluwarsa terdekat</th><th>Status</th><th></th></tr></thead><tbody>${sl.map(({p,s,stt})=>`<tr><td data-l="Kode">${esc(p.kode)}</td><td class="nm" data-l="Produk"><b>${esc(p.nama)}</b><span class="sub">${esc(p.kat)}</span></td><td data-l="Merek">${esc(p.merek)}</td><td class="right num" data-l="Harga">${rp(p.jual)}</td><td class="right num" data-l="Stok"><span><b>${s.tot}</b> <span class="muted">/ min ${p.min}</span></span></td><td data-l="Kedaluwarsa">${s.exp?`<span>${fDate(s.exp)} <span class="muted">(${daysTo(s.exp)<0?'lewat '+(-daysTo(s.exp))+' hr':daysTo(s.exp)+' hr'})</span></span>`:'–'}</td><td data-l="Status">${pill(stt[0],stt[1])}</td><td class="act"><button class="btn sm" data-act="batches" data-id="${p.id}">Batch</button>${canEditProd()?` <button class="btn sm" data-act="stockIn" data-id="${p.id}">Masuk</button> <button class="btn sm" data-act="prodEdit" data-id="${p.id}">Ubah</button>`:''}</td></tr>`).join('')||`<tr><td colspan="8" class="empty">Tidak ada produk yang cocok.</td></tr>`}</tbody></table></div>
+  return `<div class="tw"><table class="rt"><thead><tr><th>Kode</th><th>Nama produk</th><th>Merek</th><th class="right">Harga jual</th><th class="right">Stok</th><th>Kedaluwarsa terdekat</th><th>Status</th><th></th></tr></thead><tbody>${sl.map(({p,s,stt})=>`<tr><td data-l="Kode">${esc(p.kode)}</td><td class="nm" data-l="Produk"><div class="pn"><img class="th" src="${pimg(p)}" alt=""><div><b>${esc(p.nama)}</b><span class="sub">${esc(p.kat)}</span></div></div></td><td data-l="Merek">${esc(p.merek)}</td><td class="right num" data-l="Harga">${rp(p.jual)}</td><td class="right num" data-l="Stok"><span><b>${s.tot}</b> <span class="muted">/ min ${p.min}</span></span></td><td data-l="Kedaluwarsa">${s.exp?`<span>${fDate(s.exp)} <span class="muted">(${daysTo(s.exp)<0?'lewat '+(-daysTo(s.exp))+' hr':daysTo(s.exp)+' hr'})</span></span>`:'–'}</td><td data-l="Status">${pill(stt[0],stt[1])}</td><td class="act"><button class="btn sm" data-act="batches" data-id="${p.id}">Batch</button>${canEditProd()?` <button class="btn sm" data-act="stockIn" data-id="${p.id}">Masuk</button> <button class="btn sm" data-act="prodEdit" data-id="${p.id}">Ubah</button>`:''}</td></tr>`).join('')||`<tr><td colspan="8" class="empty">Tidak ada produk yang cocok.</td></tr>`}</tbody></table></div>
   <div class="foot"><span>Menampilkan ${rows.length?(ui.pp-1)*PS+1:0}–${Math.min(rows.length,ui.pp*PS)} dari ${rows.length} produk</span><div class="pg">${Array.from({length:pages},(_,i)=>`<button class="${i+1===ui.pp?'on':''}" data-act="pp" data-n="${i+1}">${i+1}</button>`).join('')}</div></div>`;
 }
 PG.produk=()=>{
@@ -753,14 +816,17 @@ PG.produk=()=>{
   <div class="bar"><div class="sw grow">${icon('search')}<input data-in="pq" id="pq" value="${esc(ui.q)}" placeholder="Cari nama / kode / merek produk" aria-label="Cari produk"></div>
   <select data-in="fkat" aria-label="Kategori"><option>Semua</option>${KAT.map(k=>`<option ${ui.fkat===k?'selected':''}>${k}</option>`).join('')}</select>
   <select data-in="fstat" aria-label="Status">${['Semua','Perlu perhatian','Aman','Menipis','Habis','Hampir kedaluwarsa','Kedaluwarsa'].map(k=>`<option ${ui.fstat===k?'selected':''}>${k}</option>`).join('')}</select>
-  ${canEditProd()?`<button class="btn pri" data-act="prodNew">${icon('plus')} Tambah barang</button><button class="btn ok" data-act="stockIn">${icon('dl')} Barang masuk</button>`:''}</div><div id="ptable">${prodTable()}</div>`;
+  ${canEditProd()?`<button class="btn pri" data-act="prodNew">${icon('plus')} Tambah barang</button><label class="btn" style="cursor:pointer" title="Pilih banyak foto sekaligus. Nama file = kode atau nama barang">Foto massal<input type="file" accept="image/*" multiple data-ch="bulkFoto" class="sr"></label><button class="btn ok" data-act="stockIn">${icon('dl')} Barang masuk</button>`:''}</div><div id="ptable">${prodTable()}</div>`;
 };
 function nextKode(){const n=Math.max(0,...DB.products.map(p=>parseInt(p.kode.replace(/\D/g,''))||0))+1;return 'KS-'+String(n).padStart(3,'0')}
+function pfPreview(){const i=$('#pfimg');if(!i)return;i.src=ui.pf.foto||pimg({nama:$('#fn').value,kode:$('#fk').value,merek:$('#fm').value,kat:$('#fc').value,tipe:ui.pf.tipe})}
 function prodForm(id){
   const p=id?prod(id):{kode:nextKode(),barcode:'',nama:'',merek:'',kat:KAT[0],satuan:'pcs',beli:'',jual:'',min:10};
-  openModal(id?'Ubah barang':'Tambah barang',`<div class="f2"><div class="f"><label for="fk">Kode produk</label><input id="fk" value="${esc(p.kode)}"></div><div class="f"><label for="fb">Barcode</label><input id="fb" value="${esc(p.barcode)}" inputmode="numeric" placeholder="Opsional"></div></div>
-   <div class="f"><label for="fn">Nama produk</label><input id="fn" value="${esc(p.nama)}"></div>
-   <div class="f2"><div class="f"><label for="fm">Merek</label><input id="fm" value="${esc(p.merek)}"></div><div class="f"><label for="fc">Kategori</label><select id="fc">${KAT.map(k=>`<option ${p.kat===k?'selected':''}>${k}</option>`).join('')}</select></div></div>
+  ui.pf={foto:p.foto||null,tipe:p.tipe||guessTipe(p.nama)};
+  openModal(id?'Ubah barang':'Tambah barang',`<div class="pf"><img class="th lg" id="pfimg" alt="Gambar produk" src="${pimg({...p,foto:null,tipe:ui.pf.tipe})}"><div class="f" style="flex:1;min-width:180px"><label for="pf_t">Bentuk kemasan</label><select id="pf_t" data-in="pf_tipe">${Object.entries(TIPE).map(([k,v])=>`<option value="${k}" ${ui.pf.tipe===k?'selected':''}>${v}</option>`).join('')}</select><div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:6px"><label class="btn sm" style="cursor:pointer">Unggah foto produk<input type="file" accept="image/*" data-ch="pfFile" class="sr"></label><button type="button" class="btn sm ghost" data-act="pfClear">Pakai gambar otomatis</button></div></div></div>
+   <div class="f2"><div class="f"><label for="fk">Kode produk</label><input id="fk" data-in="pf_up" value="${esc(p.kode)}"></div><div class="f"><label for="fb">Barcode</label><input id="fb" value="${esc(p.barcode)}" inputmode="numeric" placeholder="Opsional"></div></div>
+   <div class="f"><label for="fn">Nama produk</label><input id="fn" data-in="pf_up" value="${esc(p.nama)}"></div>
+   <div class="f2"><div class="f"><label for="fm">Merek</label><input id="fm" data-in="pf_up" value="${esc(p.merek)}"></div><div class="f"><label for="fc">Kategori</label><select id="fc" data-in="pf_up">${KAT.map(k=>`<option ${p.kat===k?'selected':''}>${k}</option>`).join('')}</select></div></div>
    <div class="f2"><div class="f"><label for="fbe">Harga beli (Rp)</label><input id="fbe" inputmode="numeric" value="${p.beli}"></div><div class="f"><label for="fj">Harga jual (Rp)</label><input id="fj" inputmode="numeric" value="${p.jual}"></div></div>
    <div class="f2"><div class="f"><label for="fmin">Stok minimum</label><input id="fmin" inputmode="numeric" value="${p.min}"></div><div class="f"><label for="fs">Satuan</label><input id="fs" value="${esc(p.satuan)}"></div></div>
    ${id?'':`<div class="note info">Stok awal (opsional) dicatat sebagai batch pertama.</div><div class="f2"><div class="f"><label for="fq">Jumlah stok awal</label><input id="fq" inputmode="numeric" value="0"></div><div class="f"><label for="fe">Tanggal kedaluwarsa</label><input id="fe" type="date"></div></div>`}`,
@@ -768,7 +834,7 @@ function prodForm(id){
 }
 function saveProd(id){
   const v=i=>$('#'+i).value.trim(),n=i=>parseInt(v(i).replace(/\D/g,''))||0;
-  const d={kode:v('fk').toUpperCase(),barcode:v('fb'),nama:v('fn'),merek:v('fm'),kat:v('fc'),beli:n('fbe'),jual:n('fj'),min:n('fmin'),satuan:v('fs')||'pcs'};
+  const d={kode:v('fk').toUpperCase(),barcode:v('fb'),nama:v('fn'),merek:v('fm'),kat:v('fc'),beli:n('fbe'),jual:n('fj'),min:n('fmin'),satuan:v('fs')||'pcs',tipe:ui.pf.tipe,foto:ui.pf.foto||null};
   if(!d.kode||!d.nama)return toast('Kode dan nama produk wajib diisi',1);
   if(d.jual<=0)return toast('Harga jual harus lebih dari 0',1);
   if(DB.products.some(p=>p.id!==id&&p.kode===d.kode))return toast('Kode produk sudah dipakai',1);
@@ -779,7 +845,7 @@ function saveProd(id){
 }
 function batchModal(pid){
   const p=prod(pid),bs=DB.batches.filter(b=>b.id_produk===pid).sort((a,b)=>(a.exp||'9')<(b.exp||'9')?-1:1);
-  openModal('Batch: '+esc(p.nama),`<div class="tw"><table><thead><tr><th>Batch</th><th>Masuk</th><th>Kedaluwarsa</th><th class="right">Jumlah</th><th>Status</th></tr></thead><tbody>${bs.map(b=>{const d=b.exp?daysTo(b.exp):null,stt=b.jumlah<=0?pill('mute','Kosong'):d!==null&&d<0?pill('bad','Kedaluwarsa'):d!==null&&d<=S().hari_exp?pill('warn',d+' hari lagi'):pill('ok','Aman');return `<tr><td>${esc(b.kode)}</td><td>${fDate(b.masuk)}</td><td>${fDate(b.exp)}</td><td class="right num">${b.jumlah}</td><td>${stt}</td></tr>`}).join('')||'<tr><td colspan="5" class="empty">Belum ada batch.</td></tr>'}</tbody></table></div><div class="muted">Penjualan mengambil batch dengan tanggal kedaluwarsa paling awal (FEFO). Batch kedaluwarsa tidak dijual.</div>`,
+  openModal('Batch: '+esc(p.nama),`<div class="pn"><img class="th lg" src="${pimg(p)}" alt=""><div><b>${esc(p.nama)}</b><div class="muted">${esc(p.merek)} · ${esc(p.kode)} · ${esc(p.kat)}</div></div></div><div class="tw"><table><thead><tr><th>Batch</th><th>Masuk</th><th>Kedaluwarsa</th><th class="right">Jumlah</th><th>Status</th></tr></thead><tbody>${bs.map(b=>{const d=b.exp?daysTo(b.exp):null,stt=b.jumlah<=0?pill('mute','Kosong'):d!==null&&d<0?pill('bad','Kedaluwarsa'):d!==null&&d<=S().hari_exp?pill('warn',d+' hari lagi'):pill('ok','Aman');return `<tr><td>${esc(b.kode)}</td><td>${fDate(b.masuk)}</td><td>${fDate(b.exp)}</td><td class="right num">${b.jumlah}</td><td>${stt}</td></tr>`}).join('')||'<tr><td colspan="5" class="empty">Belum ada batch.</td></tr>'}</tbody></table></div><div class="muted">Penjualan mengambil batch dengan tanggal kedaluwarsa paling awal (FEFO). Batch kedaluwarsa tidak dijual.</div>`,
    `${canEditProd()?`<button class="btn pri" data-act="stockIn" data-id="${pid}">Barang masuk</button>`:''}<button class="btn" data-act="closeModal">Tutup</button>`,'w');
 }
 function stockInModal(pid){
@@ -980,7 +1046,7 @@ voidDo:el=>{const s=DB.sales.find(x=>x.id===el.dataset.id),a=$('#va').value.trim
 rcptCopy:()=>copyText(ui.rcpt),
 rcptPrint:()=>{$('#printarea').innerHTML='<pre>'+esc(ui.rcpt)+'</pre>';try{window.print()}catch(e){}toast('Dialog cetak dibuka. Jika tidak muncul, gunakan Salin.')},
 /* produk & stok */
-prodNew:()=>prodForm(),prodEdit:el=>prodForm(el.dataset.id),
+pfClear:()=>{ui.pf.foto=null;pfPreview()},prodNew:()=>prodForm(),prodEdit:el=>prodForm(el.dataset.id),
 prodSave:el=>saveProd(el.dataset.id||null),
 prodOff:el=>confirmBox('Nonaktifkan produk ini? Produk tidak tampil di kasir dan daftar, riwayat penjualan tetap tersimpan.','Nonaktifkan',()=>{const p=prod(el.dataset.id);p.aktif=false;log('Menonaktifkan produk '+p.kode);save();renderPage();toast('Produk dinonaktifkan')},true),
 batches:el=>batchModal(el.dataset.id),
@@ -1054,6 +1120,7 @@ fkat:el=>{ui.fkat=el.value;ui.pp=1;$('#ptable').innerHTML=prodTable()},
 fstat:el=>{ui.fstat=el.value;ui.pp=1;$('#ptable').innerHTML=prodTable()},
 oq:el=>{ui.oq=el.value;keep(()=>renderPage())},
 opv:el=>{ui.opname[el.dataset.id]=el.value;const c=$('#od_'+el.dataset.id);if(!c)return;if(el.value===''){c.textContent='–';return}const d=parseInt(el.value)-(+el.dataset.s);c.innerHTML=isNaN(d)?'–':`<b style="color:var(--${d<0?'bad':d>0?'ok':'muted'})">${d>0?'+':''}${d}</b>`},
+pf_tipe:el=>{ui.pf.tipe=el.value;pfPreview()},pf_up:()=>pfPreview(),
 po_s:el=>{ui.po.sid=el.value},po_t:el=>{ui.po.tgl=el.value},po_c:el=>{ui.po.cat=el.value},
 po_p:el=>{const it=ui.po.items[+el.dataset.i];it.pid=el.value;it.harga=prod(el.value).beli;keep(()=>$('#poform').innerHTML=poFormHTML())},
 po_q:el=>{ui.po.items[+el.dataset.i].qty=parseInt(el.value)||0;keep(()=>$('#poform').innerHTML=poFormHTML())},
@@ -1062,7 +1129,7 @@ range:el=>{ui.range=el.value;renderPage()},
 rfrom:el=>{ui.rfrom=el.value;keep(()=>renderPage())},rto:el=>{ui.rto=el.value;keep(()=>renderPage())},
 lq:el=>{ui.lq=el.value;$('#loglist').innerHTML=logHTML()}
 };
-const CHG={bkFile:el=>{const f=el.files[0];if(!f)return;const r=new FileReader();r.onload=()=>confirmBox(`Pulihkan data dari “${esc(f.name)}”? Seluruh data saat ini akan diganti.`,'Pulihkan',()=>restore(r.result),true);r.readAsText(f);el.value=''}};
+const CHG={bulkFoto:async el=>{const fs=[...el.files];el.value='';if(!fs.length)return;const nz=x=>String(x).toLowerCase().replace(/\.[a-z0-9]+$/,'').replace(/[^a-z0-9]/g,'');let ok=0,miss=[];for(const f of fs){const n=nz(f.name);const p=DB.products.find(p=>p.aktif&&(nz(p.kode)===n||(n.length>=4&&(nz(p.nama).includes(n)||n.includes(nz(p.nama))||n.includes(nz(p.merek)+nz(p.nama)))))||p.aktif&&n.includes(nz(p.kode)));if(!p){miss.push(f.name);continue}try{p.foto=await readFoto(f);ok++}catch(e){miss.push(f.name)}}save();$('#ptable').innerHTML=prodTable();toast(ok+' foto dipasang'+(miss.length?', '+miss.length+' tidak cocok: '+miss.slice(0,3).join(', '):''),miss.length&&!ok?1:0)},pfFile:async el=>{const f=el.files[0];if(!f)return;try{ui.pf.foto=await readFoto(f);pfPreview();toast('Foto dipasang. Ketuk Simpan untuk menyimpan.')}catch(e){toast('Foto tidak dapat dibaca',1)}el.value=''},bkFile:el=>{const f=el.files[0];if(!f)return;const r=new FileReader();r.onload=()=>confirmBox(`Pulihkan data dari “${esc(f.name)}”? Seluruh data saat ini akan diganti.`,'Pulihkan',()=>restore(r.result),true);r.readAsText(f);el.value=''}};
 
 document.addEventListener('click',e=>{
   const el=e.target.closest('[data-act]');
